@@ -1,3 +1,6 @@
+### Use Vundle to manage plugins
+# lk's
+
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -8,8 +11,13 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'Raimondi/delimitMate'
 Plugin 'majutsushi/tagbar'
 nmap <F8> :TagbarToggle<CR>
-Plugin 'vim-scripts/The-NERD-tree'
+let tagbar_left=1 
+let tagbar_width=16
+
+Plugin 'scrooloose/nerdtree'
 nmap <F7> :NERDTreeToggle<CR>
+let NERDTreeWinPos='right'
+let NERDTreeWinSize=20
 
 Plugin 'scrooloose/syntastic'
 let g:syntastic_check_on_open = 1
@@ -22,13 +30,14 @@ let g:syntastic_c_check_header = 1
 let g:syntastic_c_no_include_search = 1
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
-let g:syntastic_auto_loc_list = 2
+let g:syntastic_auto_loc_list = 1
 let g:syntastic_loc_list_height = 5
-let g:syntastic_enable_balloons = 1
 let g:syntastic_enable_perl_checker = 1
 let g:syntastic_python_python_exec = '/usr/bin/python'
 
 Plugin 'Valloric/YouCompleteMe'
+nnoremap <leader>jd :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>je :YcmCompleter GoToDefinition<CR>
 let g:ycm_show_diagnostics_ui = 0
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf=0
@@ -41,45 +50,9 @@ let g:ycm_min_num_identifier_candidate_chars=5
 let g:ycm_cache_omnifunc=0
 let g:ycm_seed_identifiers_with_syntax=1
 let g:ycm_key_invoke_completion = '<M-;>'
-nmap <C-g> :YcmCompleter GoToDefinitionElseDeclaration <C-R>=expand("<cword>")<CR><CR>
-let g:ycm_key_list_select_completion = ['<C-TAB>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-S-TAB>', '<Up>']
-let g:ycm_semantic_triggers =  {
-            \   'c' : ['->', '.'],
-            \   'objc' : ['->', '.'],
-            \   'ocaml' : ['.', '#'],
-            \   'cpp,objcpp' : ['->', '.', '::'],
-            \   'perl' : ['->'],
-            \   'php' : ['->', '::'],
-            \   'cs,java,javascript,d,vim,python,perl6,scala,vb,elixir,go' : ['.'],
-            \   'ruby' : ['.', '::'],
-            \   'lua' : ['.', ':'],
-            \   'erlang' : [':'],
-            \ }
-let g:ycm_semantic_triggers.c = ['->', '.', ' ', '(', '[', '&']
+"let g:ycm_semantic_triggers.c = ['->', '.', ' ', '(', '[', '&']
 
 Plugin 'kien/rainbow_parentheses.vim'
-let g:rbpt_colorpairs = [
-            \ ['brown',       'RoyalBlue3'],
-            \ ['Darkblue',    'SeaGreen3'],
-            \ ['darkgray',    'DarkOrchid3'],
-            \ ['darkgreen',   'firebrick3'],
-            \ ['darkcyan',    'RoyalBlue3'],
-            \ ['darkred',     'SeaGreen3'],
-            \ ['darkmagenta', 'DarkOrchid3'],
-            \ ['brown',       'firebrick3'],
-            \ ['gray',        'RoyalBlue3'],
-            \ ['black',       'SeaGreen3'],
-            \ ['darkmagenta', 'DarkOrchid3'],
-            \ ['Darkblue',    'firebrick3'],
-            \ ['darkgreen',   'RoyalBlue3'],
-            \ ['darkcyan',    'SeaGreen3'],
-            \ ['darkred',     'DarkOrchid3'],
-            \ ['red',         'firebrick3'],
-            \ ]
-let g:rbpt_max = 16
-let g:rbpt_loadcmd_toggle = 0
-
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
@@ -116,24 +89,28 @@ nmap <F5> :Runperl<CR>
 "To use: Runperl, :Run perl, F5
 
 Plugin 'hdima/python-syntax'
-let python_highlight_all = 0
+let python_highlight_all = 1
+let python_highlight_space_errors = 0
 
 call vundle#end()
 filetype plugin indent on
 """"""""""""""""""""""""""""""""""""""
-:colorscheme xcodelike
+:colorscheme solarized
 set number
-set autoindent
-set shiftwidth=4
-set hlsearch
-set smartindent
-set smarttab
-set softtabstop=4
-set expandtab
-set linebreak
-set showbreak=+++
-set textwidth=110
+set ruler
 set showmatch
 set incsearch
-set ruler
-
+set hlsearch
+set autoindent
+set smartindent
+set nofoldenable
+set foldmethod=syntax
+set smarttab
+set expandtab
+set softtabstop=4
+set linebreak
+set showbreak=+++
+set shiftwidth=4
+set textwidth=110
+"set laststatus=2
+"set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %y\ %0(%{&fileformat}\ %{&encoding}\ %c:%l/%L%)\ 
