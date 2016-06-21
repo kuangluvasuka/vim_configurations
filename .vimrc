@@ -1,5 +1,5 @@
-### Use Vundle to manage plugins
-# lk's
+" Use Vundle to manage plugins
+" lk's
 
 set nocompatible
 filetype off
