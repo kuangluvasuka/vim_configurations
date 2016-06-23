@@ -50,9 +50,9 @@ let g:ycm_min_num_identifier_candidate_chars=5
 let g:ycm_cache_omnifunc=0
 let g:ycm_seed_identifiers_with_syntax=1
 let g:ycm_key_invoke_completion = '<M-;>'
-"let g:ycm_semantic_triggers.c = ['->', '.', ' ', '(', '[', '&']
 
-Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'eapache/rainbow_parentheses.vim'
+syntax on
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
@@ -95,7 +95,7 @@ let python_highlight_space_errors = 0
 call vundle#end()
 filetype plugin indent on
 """"""""""""""""""""""""""""""""""""""
-:colorscheme solarized
+colorscheme solarized
 set number
 set ruler
 set showmatch
