@@ -107,10 +107,10 @@ set nofoldenable
 set foldmethod=syntax
 set smarttab
 set expandtab
-set softtabstop=4
+set softtabstop=2
 set linebreak
 set showbreak=+++
-set shiftwidth=4
+set shiftwidth=2
 set textwidth=110
 "set laststatus=2
 "set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %y\ %0(%{&fileformat}\ %{&encoding}\ %c:%l/%L%)\ 
