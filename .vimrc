@@ -111,6 +111,7 @@ set softtabstop=2
 set linebreak
 set showbreak=+++
 set shiftwidth=2
-set textwidth=110
+set linespace=1
+set textwidth=100
 "set laststatus=2
 "set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %y\ %0(%{&fileformat}\ %{&encoding}\ %c:%l/%L%)\ 
