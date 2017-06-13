@@ -115,3 +115,5 @@ set linespace=1
 set textwidth=100
 "set laststatus=2
 "set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %y\ %0(%{&fileformat}\ %{&encoding}\ %c:%l/%L%)\ 
+"
+"
